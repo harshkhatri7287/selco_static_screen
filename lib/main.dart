@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:static_screens/screens/installation_report_home_page.dart';
+import 'package:static_screens/screens/select_asset_type.dart';
+import 'package:static_screens/screens/select_health_facility.dart';
 import 'package:static_screens/screens/welcome_page.dart';
 
 void main() {
@@ -13,7 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // home: const WelcomePage(),
-      home: InstallationReport(),
+      // home: InstallationReport(),
+      // home: SelectHealthFacility(),
+      home: SelectAssetType(),
     );
   }
 }

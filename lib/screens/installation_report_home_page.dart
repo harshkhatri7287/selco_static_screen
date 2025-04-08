@@ -1,6 +1,7 @@
 import 'package:digit_ui_components/digit_components.dart';
 import 'package:digit_ui_components/theme/digit_extended_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:static_screens/widgets/header/back_navigation_helper_header.dart';
 import 'package:static_screens/widgets/navbar.dart';
 import 'package:digit_ui_components/widgets/molecules/digit_card.dart';
 
@@ -46,6 +47,7 @@ class _InstallationReportState extends State<InstallationReport> {
                   size: DigitButtonSize.large)
             ],
             ),
+            // BackNavigationHelpHeaderWidget(showHelp: true, showBackNavigation: true,),
             const SizedBox(height: spacer6),
             Text('Installation Report',
             textAlign: TextAlign.start,
@@ -81,7 +83,7 @@ class _InstallationReportState extends State<InstallationReport> {
 
 class ReportCard extends StatelessWidget {
 
-  // Add OnPressed funciton here
+  // Add OnPressed function here
 
   final IconData icon;
   final String heading;
@@ -101,7 +103,7 @@ class ReportCard extends StatelessWidget {
 
     return SizedBox(
       height: 3*spacer11,
-      child: DigitCard(
+      child : DigitCard(
         onPressed: () {},
         margin: const EdgeInsets.only(bottom: spacer4),
         children: [Column(
@@ -115,6 +117,7 @@ class ReportCard extends StatelessWidget {
                   heading,
                   style: textTheme.headingM.copyWith(color: DigitColors().light.primary2,),
                 ),
+                const Spacer(),
               ],
             ),
             const SizedBox(height: 8),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:static_screens/screens/asset_summary.dart';
+import 'package:static_screens/screens/data_save_success_page.dart';
 import 'package:static_screens/screens/installation_report_home_page.dart';
 import 'package:static_screens/screens/select_asset_type.dart';
 import 'package:static_screens/screens/select_health_facility.dart';
@@ -17,7 +19,9 @@ class MyApp extends StatelessWidget {
       // home: const WelcomePage(),
       // home: InstallationReport(),
       // home: SelectHealthFacility(),
-      home: SelectAssetType(),
+      // home: SelectAssetType(),
+      // home: DataSaveSuccessPage(),
+      home: AssetSummary(),
     );
   }
 }

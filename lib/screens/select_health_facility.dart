@@ -5,7 +5,6 @@ import 'package:digit_ui_components/widgets/molecules/digit_card.dart';
 import 'package:flutter/material.dart';
 import 'package:static_screens/widgets/header/back_navigation_helper_header.dart';
 import 'package:static_screens/widgets/navbar.dart';
-import 'package:static_screens/widgets/progress_indicator/progress_indicator.dart';
 
 class SelectHealthFacility extends StatefulWidget {
   const SelectHealthFacility({super.key});
@@ -106,6 +105,7 @@ class InstallationReportCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.digitTextTheme(context);
+
     return DigitCard(children: [
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,7 +160,7 @@ class InstallationReportCard extends StatelessWidget {
                   ),
                   const SizedBox(height: spacer4),
                   Text(
-                    '$dateAssigned',
+                    '${dateAssigned.toString()}',
                     style: textTheme.bodyL
                         .copyWith(color: theme.colorTheme.text.primary),
                   ),
@@ -174,7 +174,7 @@ class InstallationReportCard extends StatelessWidget {
                       Text(
                         '$solutionDocPath',
                         style: textTheme.bodyL
-                            .copyWith(color: theme.colorTheme.text.primary),
+                            .copyWith(color: theme.colorTheme.text.secondary),
                       ),
                     ],
                   )
@@ -182,24 +182,30 @@ class InstallationReportCard extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            textBaseline: TextBaseline.ideographic,
-            children: [
-              Expanded(
-                flex: 9,
-                child: ProgressIndicatorContainer(
-                    label: '', prefixLabel: '', suffixLabel: '', value: 0.4),
-              ),
-              Expanded(
-                  flex: 1,
-                  child: Text(
-                    '40%',
-                    style: textTheme.bodyS
-                        .copyWith(color: theme.colorTheme.text.secondary),
-                  ))
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: spacer4),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // textBaseline: TextBaseline.ideographic,
+              children: [
+                Expanded(
+                  child: LinearProgressIndicator(
+                    backgroundColor: theme.colorTheme.generic.background,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      theme.colorTheme.alert.success,
+                    ),
+                    value: 0.4,
+                    minHeight: spacer3,
+                  ),
+                ),
+                Text(
+                  '40%',
+                  style: textTheme.bodyS
+                      .copyWith(color: theme.colorTheme.text.secondary),
+                )
+              ],
+            ),
           ),
           // Row(
           //   children: [

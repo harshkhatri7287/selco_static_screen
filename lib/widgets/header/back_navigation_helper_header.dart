@@ -99,6 +99,8 @@ class BackNavigationHelpHeaderWidget extends StatelessWidget {
                 type: DigitButtonType.tertiary,
                 size: DigitButtonSize.medium,
                 suffixIcon: Icons.help_outline_outlined,
+                iconColor: theme.colorTheme.primary.primary1,
+                textColor: theme.colorTheme.primary.primary1,
                 // style: TextButton.styleFrom(padding: EdgeInsets.zero),
                 onPressed: () => helpClicked,
               ),

@@ -4,7 +4,6 @@ import 'package:digit_ui_components/widgets/atoms/digit_divider.dart';
 import 'package:digit_ui_components/widgets/molecules/digit_card.dart';
 import 'package:flutter/material.dart';
 import 'package:static_screens/widgets/navbar.dart';
-// import 'package:digit_ui_components/theme/spacers.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -20,6 +19,7 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       appBar: const Navbar(),
       body: ScrollableContent(
+        enableFixedDigitButton: true,
         backgroundColor: theme.colorTheme.generic.background,
         footer: ProceedButton(),
         children: [
@@ -76,58 +76,53 @@ class WelcomeContent extends StatelessWidget {
     ];
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: spacer5, horizontal: spacer3),
+      padding: const EdgeInsets.symmetric(vertical: spacer4, horizontal: spacer2),
       child: DigitCard(
-        // padding: const EdgeInsets.all(spacer4),
         children: [
           Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Welcome!',
-              style: textTheme.headingL.copyWith(color: DigitColors().light.primary2)
+              style: textTheme.headingXl.copyWith(color: DigitColors().light.primary2)
             ),
             const SizedBox(height: spacer3),
             Text(
               'Through this application you will be able to:',
-              style: textTheme.bodyS,
+              style: textTheme.bodyL,
             ),
-            // const SizedBox(height: spacer4),
-            ...menuItems.map((item) => Container(
-              margin: const EdgeInsets.symmetric(vertical: spacer5),
-              child: Column(
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset(item.imagePath, height: 90, width: 90,),
-                      const SizedBox(width: spacer6),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+            ...menuItems.map((item) => Column(children: [
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: spacer5),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(item.imagePath, height: spacer12*2, width: spacer12*2,),
+                    const SizedBox(width: spacer6),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
                               item.title,
                               style: textTheme.headingS.copyWith(color: DigitColors().light.primary2)
+                          ),
+                          const SizedBox(height: spacer3),
+                          Padding(
+                            padding: const EdgeInsets.only(right: spacer7),
+                            child: Text(
+                              item.description,
+                              style: textTheme.headingXS.copyWith(color: DigitColors().light.textSecondary),
                             ),
-                            const SizedBox(height: spacer1),
-                            Padding(
-                              padding: const EdgeInsets.only(right: spacer7),
-                              child: Text(
-                                item.description,
-                                style: textTheme.headingXS.copyWith(color: DigitColors().light.textSecondary),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: spacer5,),
-                  DigitDivider(dividerType: DividerType.small,)
-                ],
+                    ),
+                  ],
+                ),
               ),
-            ),
+              DigitDivider(dividerType: DividerType.medium,),
+            ],)
             ),
           ],
         ),

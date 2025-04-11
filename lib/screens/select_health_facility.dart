@@ -2,7 +2,6 @@ import 'package:digit_ui_components/digit_components.dart';
 import 'package:digit_ui_components/theme/digit_extended_theme.dart';
 import 'package:digit_ui_components/widgets/atoms/digit_divider.dart';
 import 'package:digit_ui_components/widgets/molecules/digit_card.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:static_screens/widgets/header/back_navigation_helper_header.dart';
 import 'package:static_screens/widgets/navbar.dart';
@@ -27,22 +26,16 @@ class _SelectHealthFacilityState extends State<SelectHealthFacility> {
         body: ScrollableContent(
             backgroundColor: theme.colorTheme.generic.background,
             children: [
+              BackNavigationHelpHeaderWidget(
+                showBackNavigation: true,
+                showHelp: false,
+              ),
               Padding(
-                  padding: EdgeInsets.all(spacer4),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: spacer2, vertical: spacer2),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        DigitButton(
-                            label: 'Back',
-                            prefixIcon: Icons.arrow_left,
-                            onPressed: () {},
-                            type: DigitButtonType.tertiary,
-                            iconColor: theme.colorTheme.text.primary,
-                            textColor: theme.colorTheme.text.primary,
-                            size: DigitButtonSize.medium),
-                        SizedBox(
-                          height: spacer4,
-                        ),
                         DigitCard(
                           children: [
                             Column(
@@ -54,7 +47,7 @@ class _SelectHealthFacilityState extends State<SelectHealthFacility> {
                                       color: theme.colorTheme.text.primary),
                                 ),
                                 SizedBox(
-                                  height: spacer4,
+                                  height: spacer2,
                                 ),
                                 Row(
                                   children: [
@@ -75,9 +68,21 @@ class _SelectHealthFacilityState extends State<SelectHealthFacility> {
                           ],
                         ),
                         const SizedBox(height: spacer8),
-                        InstallationReportCard(title: 'Something', dateAssigned: DateTime(2024,1,25), status: 'Pending Installation', solutionDocPath: 'somedocumnet',),
-                        const SizedBox(height: spacer5,),
-                        InstallationReportCard(title: 'Something', dateAssigned: DateTime(2024,1,25), status: 'Pending Installation', solutionDocPath: 'somedocumnet',)
+                        InstallationReportCard(
+                          title: 'Alkod',
+                          dateAssigned: DateTime(2024, 1, 25),
+                          status: 'Pending Installation',
+                          solutionDocPath: 'Allepy Solution Doc',
+                        ),
+                        const SizedBox(
+                          height: spacer5,
+                        ),
+                        InstallationReportCard(
+                          title: 'Allepy',
+                          dateAssigned: DateTime(2024, 1, 25),
+                          status: 'Pending Installation',
+                          solutionDocPath: 'Allepy Solution Doc',
+                        )
                       ])),
             ]));
   }
@@ -110,57 +115,113 @@ class InstallationReportCard extends StatelessWidget {
             style: textTheme.headingL
                 .copyWith(color: theme.colorTheme.text.primary),
           ),
-          const SizedBox(height: spacer4,),
-          DigitDivider(dividerType: DividerType.medium,),
-          Row(children: [
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(height: spacer4),
-              Text('Status', style: textTheme.headingS.copyWith(color: theme.colorTheme.text.primary),),
-              const SizedBox(height: spacer4),
-              Text('Date Assigned', style: textTheme.headingS.copyWith(color: theme.colorTheme.text.primary),),
-              const SizedBox(height: spacer4),
-              Text('Solution Doc', style: textTheme.headingS.copyWith(color: theme.colorTheme.text.primary),)
-            ],),
-            const SizedBox(width: spacer12,),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(height: spacer4),
-              Text('$status', style: textTheme.bodyL.copyWith(color: theme.colorTheme.text.primary),),
-              const SizedBox(height: spacer4),
-              Text('$dateAssigned', style: textTheme.bodyL.copyWith(color: theme.colorTheme.text.primary),),
-              const SizedBox(height: spacer4),
-              Row(children: [
-                Icon(Icons.picture_as_pdf, color: theme.colorTheme.primary.primary1,),
-                Text('$solutionDocPath', style: textTheme.bodyL.copyWith(color: theme.colorTheme.text.primary),),
-              ],)
-            ],),
-          ],),
-          Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Expanded(
-              child: ProgressIndicatorContainer(
-                  label: '', prefixLabel: '', suffixLabel: '', value: 0.4),
-            ),
-            Text('40%', style: textTheme.bodyL.copyWith(color: theme.colorTheme.text.secondary),)
-          ],),
-          SizedBox(
-            height: spacer10,
-            width: double.infinity,
-            child: DigitButton(
-                label: 'Start Insallation Report',
-                onPressed: () {},
-                type: DigitButtonType.primary,
-                size: DigitButtonSize.large),
+          const SizedBox(
+            height: spacer4,
           ),
-          const SizedBox(height: spacer6,),
-          SizedBox(
-            height: spacer10,
-            width: double.infinity,
-            child: DigitButton(
-                label: 'Submit For Approval',
-                onPressed: () {},
-                isDisabled: true,
-                type: DigitButtonType.secondary,
-                size: DigitButtonSize.large),
+          DigitDivider(
+            dividerType: DividerType.small,
           ),
+          Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: spacer4),
+                  Text(
+                    'Status',
+                    style: textTheme.headingS
+                        .copyWith(color: theme.colorTheme.text.primary),
+                  ),
+                  const SizedBox(height: spacer4),
+                  Text(
+                    'Date Assigned',
+                    style: textTheme.headingS
+                        .copyWith(color: theme.colorTheme.text.primary),
+                  ),
+                  const SizedBox(height: spacer4),
+                  Text(
+                    'Solution Doc',
+                    style: textTheme.headingS
+                        .copyWith(color: theme.colorTheme.text.primary),
+                  )
+                ],
+              ),
+              const SizedBox(
+                width: spacer12,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: spacer4),
+                  Text(
+                    '$status',
+                    style: textTheme.bodyL
+                        .copyWith(color: theme.colorTheme.text.primary),
+                  ),
+                  const SizedBox(height: spacer4),
+                  Text(
+                    '$dateAssigned',
+                    style: textTheme.bodyL
+                        .copyWith(color: theme.colorTheme.text.primary),
+                  ),
+                  const SizedBox(height: spacer4),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.picture_as_pdf,
+                        color: theme.colorTheme.primary.primary1,
+                      ),
+                      Text(
+                        '$solutionDocPath',
+                        style: textTheme.bodyL
+                            .copyWith(color: theme.colorTheme.text.primary),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            textBaseline: TextBaseline.ideographic,
+            children: [
+              Expanded(
+                flex: 9,
+                child: ProgressIndicatorContainer(
+                    label: '', prefixLabel: '', suffixLabel: '', value: 0.4),
+              ),
+              Expanded(
+                  flex: 1,
+                  child: Text(
+                    '40%',
+                    style: textTheme.bodyS
+                        .copyWith(color: theme.colorTheme.text.secondary),
+                  ))
+            ],
+          ),
+          // Row(
+          //   children: [
+          //     ProgressIndicatorContainer(label: '', prefixLabel: '', suffixLabel: '', value: 0.4),
+          //   ],
+          // ),
+          DigitButton(
+              mainAxisSize: MainAxisSize.max,
+              label: 'Start Installation Report',
+              onPressed: () {},
+              type: DigitButtonType.primary,
+              size: DigitButtonSize.large),
+          const SizedBox(
+            height: spacer4,
+          ),
+          DigitButton(
+              mainAxisSize: MainAxisSize.max,
+              label: 'Submit For Approval',
+              onPressed: () {},
+              isDisabled: true,
+              type: DigitButtonType.secondary,
+              size: DigitButtonSize.large),
         ],
       )
     ]);

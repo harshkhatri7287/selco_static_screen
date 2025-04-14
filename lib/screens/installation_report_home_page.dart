@@ -1,10 +1,10 @@
+import 'package:badges/badges.dart' as badges;
 import 'package:digit_ui_components/digit_components.dart';
 import 'package:digit_ui_components/theme/digit_extended_theme.dart';
+import 'package:digit_ui_components/widgets/molecules/digit_card.dart';
 import 'package:flutter/material.dart';
 import 'package:static_screens/widgets/header/back_navigation_helper_header.dart';
 import 'package:static_screens/widgets/navbar.dart';
-import 'package:digit_ui_components/widgets/molecules/digit_card.dart';
-import 'package:badges/badges.dart' as badges;
 
 class InstallationReport extends StatefulWidget {
   const InstallationReport({super.key});
@@ -33,7 +33,8 @@ class _InstallationReportState extends State<InstallationReport> {
           ),
           const SizedBox(height: spacer3),
           Padding(
-            padding: EdgeInsets.all(spacer4),
+            padding:
+                EdgeInsets.symmetric(horizontal: spacer4, vertical: spacer2),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -90,10 +91,9 @@ class ReportCard extends StatelessWidget {
     final textTheme = theme.digitTextTheme(context);
 
     return SizedBox(
-      height: 3*spacer11,
+      height: 3 * spacer11,
       child: Padding(
-        padding:
-        const EdgeInsets.symmetric(vertical: spacer2),
+        padding: const EdgeInsets.symmetric(vertical: spacer2),
         child: DigitCard(
           onPressed: () {},
           margin: const EdgeInsets.only(bottom: spacer1),
@@ -120,13 +120,13 @@ class ReportCard extends StatelessWidget {
                       badgeStyle: badges.BadgeStyle(
                         shape: badges.BadgeShape.square,
                         badgeColor: theme.colorTheme.alert.error,
-                        padding: const EdgeInsets.symmetric(horizontal: spacer3, vertical: spacer1),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: spacer3, vertical: spacer1),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      badgeContent: Text(
-                        '05',
-                        style: textTheme.bodyS.copyWith(color: theme.colorTheme.paper.primary)
-                      ),
+                      badgeContent: Text('05',
+                          style: textTheme.bodyS
+                              .copyWith(color: theme.colorTheme.paper.primary)),
                     ),
                   ],
                 ),

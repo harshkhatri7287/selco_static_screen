@@ -3,6 +3,7 @@ import 'package:digit_ui_components/theme/digit_extended_theme.dart';
 import 'package:digit_ui_components/widgets/atoms/digit_divider.dart';
 import 'package:digit_ui_components/widgets/molecules/digit_card.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:static_screens/widgets/header/back_navigation_helper_header.dart';
 import 'package:static_screens/widgets/navbar.dart';
 
@@ -31,7 +32,7 @@ class _SelectHealthFacilityState extends State<SelectHealthFacility> {
               ),
               Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: spacer2, vertical: spacer2),
+                      horizontal: spacer4, vertical: spacer2),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -90,14 +91,14 @@ class _SelectHealthFacilityState extends State<SelectHealthFacility> {
 class InstallationReportCard extends StatelessWidget {
   final String? title;
   final String? status;
-  final DateTime? dateAssigned;
+  final DateTime dateAssigned;
   final String? solutionDocPath;
 
   const InstallationReportCard({
     super.key,
     this.title,
     this.status,
-    this.dateAssigned,
+    required this.dateAssigned,
     this.solutionDocPath,
   });
 
@@ -105,6 +106,7 @@ class InstallationReportCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.digitTextTheme(context);
+    String formattedDate = DateFormat('dd/MM/yy').format(dateAssigned);
 
     return DigitCard(children: [
       Column(
@@ -160,7 +162,7 @@ class InstallationReportCard extends StatelessWidget {
                   ),
                   const SizedBox(height: spacer4),
                   Text(
-                    '${dateAssigned.toString()}',
+                    formattedDate,
                     style: textTheme.bodyL
                         .copyWith(color: theme.colorTheme.text.primary),
                   ),

@@ -3,12 +3,10 @@ import 'package:digit_ui_components/theme/digit_extended_theme.dart';
 import 'package:digit_ui_components/widgets/atoms/digit_divider.dart';
 import 'package:digit_ui_components/widgets/atoms/upload_popUp.dart';
 import 'package:digit_ui_components/widgets/molecules/digit_card.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'dart:typed_data';
 import 'package:static_screens/widgets/header/back_navigation_helper_header.dart';
 import 'package:static_screens/widgets/navbar.dart';
-import 'package:digit_ui_components/widgets/atoms/upload_drag.dart';
-import 'package:file_picker/file_picker.dart';
 
 class OverallAssetSummary extends StatefulWidget {
   const OverallAssetSummary({super.key});
@@ -68,14 +66,14 @@ class _OverallAssetSummaryState extends State<OverallAssetSummary> {
                     ElementAssetSummary(type: 'Panel', count: 0),
                     DigitCard(children: [
                       DigitButton(
-                        mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.max,
                           label: 'Add More Assets',
                           prefixIcon: Icons.add_box,
                           onPressed: () {},
                           type: DigitButtonType.primary,
                           size: DigitButtonSize.medium)
                     ]),
-                    ]),
+                  ]),
                   const SizedBox(
                     height: spacer4,
                   ),
@@ -141,7 +139,9 @@ class ElementAssetSummary extends StatelessWidget {
                 style: textTheme.headingS,
               ),
             ),
-            const SizedBox(width: spacer6*3,),
+            const SizedBox(
+              width: spacer6 * 3,
+            ),
             Text(
               '$count',
               style: textTheme.bodyL,
